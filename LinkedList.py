@@ -99,8 +99,8 @@ llist.append(6)
 llist.append(8)
 llist.append(1)
 
-#llist.prepend(2)
-#llist.insert(5,llist.head.next)
+llist.prepend(2)
+llist.insert(5,llist.head.next)
 llist.delete(8)
 llist.delete_at_position(1)
 
