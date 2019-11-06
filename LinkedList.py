@@ -71,7 +71,7 @@ class LinkedList:
             self.head = cur_node.next
             cur_node = None
 
-        count = 1
+        count = 0
         prev = None
         while cur_node and count!=position:
             prev = cur_node
@@ -101,8 +101,6 @@ llist.append(1)
 
 llist.prepend(2)
 llist.insert(5,llist.head.next)
-llist.delete(8)
-llist.delete_at_position(1)
-
-
+llist.delete(8)     # 2,4,5,6,1
+llist.delete_at_position(3)
 llist.print_list()
