@@ -19,7 +19,7 @@ class HashMap:
     '''
     Here we can add <key>/<value> entry to our HashMap
     '''
-    def set(self, key, val) -> List[int]:
+    def set(self, key, val) -> []:
         address = self.__hashing(key)
         if self.hash_map[address] is None:
             self.hash_map[address] = []
