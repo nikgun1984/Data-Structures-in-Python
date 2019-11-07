@@ -154,6 +154,6 @@ print(f'Size after deletion is {llist.len_recursive(llist.head)}')
 llist.print_list()
 
 llist.swap_nodes(2,4)
-print('After swapping: ')
+print('\nAfter swapping: ')
 llist.print_list()
 
