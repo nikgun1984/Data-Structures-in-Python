@@ -131,6 +131,24 @@ class LinkedList:
 
         curr_1.next,curr_2.next = curr_2.next,curr_1.next
 
+    def reverse_iterative(self):
+
+        prev = None
+        curr = self.head
+
+        while curr:
+            next_node = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_node
+
+        self.head = prev
+
+    def reverse_recursive(self):
+        pass
+
+
+
 
 llist = LinkedList()
 llist.append(4)
@@ -154,6 +172,10 @@ print(f'Size after deletion is {llist.len_recursive(llist.head)}')
 llist.print_list()
 
 llist.swap_nodes(2,4)
-print('After swapping: ')
+print('\nAfter swapping: ')
 llist.print_list()
+llist.reverse_iterative()
+print('\nAfter reversing the list: ')
+llist.print_list()
+
 
