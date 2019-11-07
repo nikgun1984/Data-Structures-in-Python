@@ -117,7 +117,7 @@ class LinkedList:
         while curr_2 and curr_2.data!=key_2:
             prev_2=curr_2
             curr_2 = curr_2.next
-        if not curr_1 or not curr_2:
+        if not curr_1 or not curr_2: # if curr_1 or curr_2 is None --> DeMorgan's
             return
 
         if prev_1:
