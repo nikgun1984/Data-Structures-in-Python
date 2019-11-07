@@ -97,9 +97,39 @@ class LinkedList:
     def print_list(self) -> None:
         dummy_node = self.head
         while dummy_node: #  OR is not None
-            print(dummy_node.data)
+            print(dummy_node.data,end=',')
             dummy_node = dummy_node.next
+    """
+    Swap Nodes with data in the nodes
+    """
+    def swap_nodes(self,key_1,key_2) -> "None":
+        if key_1==key_2:
+            return
 
+        prev_1 = None
+        curr_1 = self.head
+        while curr_1 and curr_1.data!=key_1:
+            prev_1 = curr_1
+            curr_1 = curr_1.next
+
+        prev_2 = None
+        curr_2 = self.head
+        while curr_2 and curr_2.data!=key_2:
+            prev_2=curr_2
+            curr_2 = curr_2.next
+        if not curr_1 or not curr_2:
+            return
+
+        if prev_1:
+            prev_1.next = curr_2
+        else:
+            self.head = curr_2
+        if prev_2:
+            prev_2.next = curr_1
+        else:
+            self.head = curr_1
+
+        curr_1.next,curr_2.next = curr_2.next,curr_1.next
 
 
 llist = LinkedList()
@@ -107,6 +137,11 @@ llist.append(4)
 llist.append(6)
 llist.append(8)
 llist.append(1)
+llist.append(2)
+llist.append(3)
+llist.append(5)
+llist.append(7)
+
 
 llist.prepend(2)
 llist.insert(5,llist.head.next)
@@ -115,4 +150,10 @@ llist.delete(8)     # 2,4,5,6,1
 llist.delete_at_position(3)
 print(f'Size after deletion is {llist.size_list()}')
 print(f'Size after deletion is {llist.len_recursive(llist.head)}')
+
+llist.print_list()
+
+llist.swap_nodes(2,4)
+print('After swapping: ')
+llist.print_list()
 
