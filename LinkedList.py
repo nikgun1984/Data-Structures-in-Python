@@ -9,11 +9,19 @@ class LinkedList:
 
     def size_list(self) -> int:
         cur = self.head
-        count=0
+        count = 0
         while cur:
+            count+=1
             cur = cur.next
-            count+=count
         return count
+
+    def len_recursive(self,head) -> int:
+        '''
+        Recursive Method to get our length of the list
+        '''
+        if head is None:
+            return 0
+        return 1+self.len_recursive(head.next)
 
     """
     Will add Node to the end of the list
@@ -93,6 +101,7 @@ class LinkedList:
             dummy_node = dummy_node.next
 
 
+
 llist = LinkedList()
 llist.append(4)
 llist.append(6)
@@ -101,6 +110,9 @@ llist.append(1)
 
 llist.prepend(2)
 llist.insert(5,llist.head.next)
+print(f'Size before deletion is {llist.size_list()}')
 llist.delete(8)     # 2,4,5,6,1
 llist.delete_at_position(3)
-llist.print_list()
+print(f'Size after deletion is {llist.size_list()}')
+print(f'Size after deletion is {llist.len_recursive(llist.head)}')
+
