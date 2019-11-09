@@ -99,6 +99,7 @@ class LinkedList:
         while dummy_node: #  OR is not None
             print(dummy_node.data,end=',')
             dummy_node = dummy_node.next
+        print('\b')
     """
     Swap Nodes with data in the nodes
     """
@@ -147,7 +148,26 @@ class LinkedList:
     def reverse_recursive(self):
         pass
 
-
+    """
+    Removes duplicates from linked list
+    I used set in order to monitor which elements are in the linked list.
+    I believe we can even use list in that case cuz we verify if the element is 
+    in the list if it is then we can re-link our nodes and duplicate will be unchained
+    """
+    def remove_duplicates(self):
+        dummy = self.head
+        map_set = set()
+        while dummy:
+            if dummy.data not in map_set:
+                map_set.add(dummy.data)
+                prev = dummy
+                dummy = dummy.next
+            else:
+                prev.next = dummy.next
+                node = dummy
+                dummy = dummy.next
+                node = None
+        return self.head
 
 
 llist = LinkedList()
@@ -177,5 +197,22 @@ llist.print_list()
 llist.reverse_iterative()
 print('\nAfter reversing the list: ')
 llist.print_list()
+print()
+print('New list: ')
+
+llist2 = LinkedList()
+llist2.append(4)
+llist2.append(4)
+llist2.append(4)
+llist2.append(4)
+llist2.append(4)
+llist2.append(4)
+llist2.append(4)
+llist2.append(4)
+llist2.print_list()
+node = llist2.remove_duplicates()
+llist2.print_list()
+
+
 
 
