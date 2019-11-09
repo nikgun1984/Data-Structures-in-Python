@@ -161,12 +161,10 @@ class LinkedList:
             if dummy.data not in map_set:
                 map_set.add(dummy.data)
                 prev = dummy
-                dummy = dummy.next
+                dummy=None
             else:
                 prev.next = dummy.next
-                node = dummy
-                dummy = dummy.next
-                node = None
+            dummy = prev.next
         return self.head
 
 
