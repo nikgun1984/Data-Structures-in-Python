@@ -33,12 +33,12 @@ class MyQueue:
         self.stack1.append(x)
         while self.stack2:
             self.stack1.append(self.stack2.pop())
-        
-     def pop(self) -> int:
-        """
-        Removes the element from in front of queue and returns that element.
-        """
-        return self.stack1.pop()
+
+        def pop(self) -> int:
+            """
+            Removes the element from in front of queue and returns that element.
+            """
+            return self.stack1.pop()
 
     def peek(self) -> int:
         """

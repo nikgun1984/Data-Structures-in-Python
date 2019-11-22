@@ -21,7 +21,7 @@ class HashMap:
     '''
     def set(self, key, val) -> []:
         address = self.__hashing(key)
-        if self.hash_map[address] is None:
+        if not self.hash_map[address]:
             self.hash_map[address] = []
         self.hash_map[address].append([key, val])
         return self.hash_map
@@ -44,7 +44,7 @@ class HashMap:
     def keys(self) -> []:
         keys_array = []
         for i in range(0, len(self.hash_map)):
-            if self.hash_map[i] is not None:
+            if self.hash_map[i]:
                 keys_array.append(self.hash_map[i][0][0])
         return keys_array
     '''
@@ -53,7 +53,7 @@ class HashMap:
     def values(self) -> []:
         values_array = []
         for i in range(0, len(self.hash_map)):
-            if self.hash_map[i] is not None:
+            if self.hash_map[i]:
                 values_array.append(self.hash_map[i][0][1])
         return values_array
     
@@ -63,7 +63,7 @@ class HashMap:
     def key_value(self) -> []:
         values_key_array = []
         for i in range(0, len(self.hash_map)):
-            if self.hash_map[i] is not None:
+            if self.hash_map[i]:
                 values_key_array.append((self.hash_map[i][0][0],self.hash_map[i][0][1]))
         return values_key_array
 

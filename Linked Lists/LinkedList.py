@@ -1,7 +1,8 @@
 class Node:
-    def __init__(self,data):
+    def __init__(self, data):
         self.data = data
         self.next = None
+
 
 class LinkedList:
     def __init__(self):
@@ -11,22 +12,23 @@ class LinkedList:
         cur = self.head
         count = 0
         while cur:
-            count+=1
+            count += 1
             cur = cur.next
         return count
 
-    def len_recursive(self,head) -> int:
+    def len_recursive(self, head) -> int:
         '''
         Recursive Method to get our length of the list
         '''
         if head is None:
             return 0
-        return 1+self.len_recursive(head.next)
+        return 1 + self.len_recursive(head.next)
 
     """
     Will add Node to the end of the list
     """
-    def append(self,data) -> None:
+
+    def append(self, data) -> None:
         new_node = Node(data)
 
         if self.head is None:
@@ -41,15 +43,16 @@ class LinkedList:
     """
     Will add Node to the beginning of the list
     """
-    def prepend(self,data) -> None:
+
+    def prepend(self, data) -> None:
         new_node = Node(data)
 
         new_node.next = self.head
         self.head = new_node
 
-    def insert(self,data,node) -> None:
+    def insert(self, data, node) -> None:
 
-        if not node: # if node is not in the list
+        if not node:  # if node is not in the list
             print('Previous list is not in the list')
             return
 
@@ -73,7 +76,7 @@ class LinkedList:
         prev.next = cur_node.next
         cur_node = None
 
-    def delete_at_position(self,position) -> None:
+    def delete_at_position(self, position) -> None:
         cur_node = self.head
         if position == 0:
             self.head = cur_node.next
@@ -81,10 +84,10 @@ class LinkedList:
 
         count = 0
         prev = None
-        while cur_node and count!=position:
+        while cur_node and count != position:
             prev = cur_node
             cur_node = cur_node.next
-            count+=1
+            count += 1
 
         if cur_node is None:
             return
@@ -94,31 +97,34 @@ class LinkedList:
     """
     Will traverse through the list and print Node after Node
     """
+
     def print_list(self) -> None:
         dummy_node = self.head
-        while dummy_node: #  OR is not None
-            print(dummy_node.data,end=',')
+        while dummy_node:  # OR is not None
+            print(dummy_node.data, end=',')
             dummy_node = dummy_node.next
         print('\b')
+
     """
     Swap Nodes with data in the nodes
     """
-    def swap_nodes(self,key_1,key_2) -> "None":
-        if key_1==key_2:
+
+    def swap_nodes(self, key_1, key_2) -> "None":
+        if key_1 == key_2:
             return
 
         prev_1 = None
         curr_1 = self.head
-        while curr_1 and curr_1.data!=key_1:
+        while curr_1 and curr_1.data != key_1:
             prev_1 = curr_1
             curr_1 = curr_1.next
 
         prev_2 = None
         curr_2 = self.head
-        while curr_2 and curr_2.data!=key_2:
-            prev_2=curr_2
+        while curr_2 and curr_2.data != key_2:
+            prev_2 = curr_2
             curr_2 = curr_2.next
-        if not curr_1 or not curr_2: # if curr_1 or curr_2 is None --> DeMorgan's
+        if not curr_1 or not curr_2:  # if curr_1 or curr_2 is None --> DeMorgan's
             return
 
         if prev_1:
@@ -130,7 +136,7 @@ class LinkedList:
         else:
             self.head = curr_1
 
-        curr_1.next,curr_2.next = curr_2.next,curr_1.next
+        curr_1.next, curr_2.next = curr_2.next, curr_1.next
 
     def reverse_iterative(self):
 
@@ -154,6 +160,7 @@ class LinkedList:
     I believe we can even use list in that case cuz we verify if the element is 
     in the list if it is then we can re-link our nodes and duplicate will be unchained
     """
+
     def remove_duplicates(self):
         dummy = self.head
         map_set = set()
@@ -161,7 +168,7 @@ class LinkedList:
             if dummy.data not in map_set:
                 map_set.add(dummy.data)
                 prev = dummy
-                dummy=None
+                dummy = None
             else:
                 prev.next = dummy.next
             dummy = prev.next
@@ -178,18 +185,17 @@ llist.append(3)
 llist.append(5)
 llist.append(7)
 
-
 llist.prepend(2)
-llist.insert(5,llist.head.next)
+llist.insert(5, llist.head.next)
 print(f'Size before deletion is {llist.size_list()}')
-llist.delete(8)     # 2,4,5,6,1
+llist.delete(8)  # 2,4,5,6,1
 llist.delete_at_position(3)
 print(f'Size after deletion is {llist.size_list()}')
 print(f'Size after deletion is {llist.len_recursive(llist.head)}')
 
 llist.print_list()
 
-llist.swap_nodes(2,4)
+llist.swap_nodes(2, 4)
 print('\nAfter swapping: ')
 llist.print_list()
 llist.reverse_iterative()
@@ -210,7 +216,3 @@ llist2.append(4)
 llist2.print_list()
 node = llist2.remove_duplicates()
 llist2.print_list()
-
-
-
-

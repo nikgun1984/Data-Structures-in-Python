@@ -28,7 +28,7 @@ class Queue:
         self.length += 1
 
     def dequeue(self) -> int:
-        if self.first is None:
+        if not self.first:
             return None
         if self.first == self.last:
             return None
